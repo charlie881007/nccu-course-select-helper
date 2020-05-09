@@ -1,0 +1,1 @@
+web: gunicorn nccucoursehelper.wsgi

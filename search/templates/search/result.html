@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>政大課程排序查詢</title>
+	<style type="text/css">
+		#inputzone{display:inline-block;}
+		#submitzone{display:inline-block;}
+		table{width:100%; border-collapse:collapse; }
+		td{padding:10px;border-bottom:1px solid #000000}
+		tr:nth-child(odd){background-color:#e8e8e8}
+		tr:nth-child(1){background-color:#7788aa; color:#ffffff}
+	</style>
+</head>
+<body>
+	<div id='formzone'>
+		<form action='{% url "result_page" %}' method='post'>
+		{% csrf_token %}
+			<div id='inputzone'>
+				<label for='teacher'>老師：</label>
+				<input type='text' id='teacher' name='teacher' value='' style='margin-right:18px'/>
+				<label for='course'>課程：</label>
+				<input type='text' id='course' name='course' value='' style='margin-right:18px'/>
+				<label for='time'>時間：</label>
+				<input type='text' id='time' name='time' value='' style='margin-right:24px'/>
+			</div>
+			<div id='submitzone'>
+				<input type='submit' value='送出'/>
+			</div>
+		</form>
+	</div>
+	<br/><br/>
+	<div id='resultzone'>
+		<h1>1082一階：</h1>
+		{% if output_list_1082x1 %}
+			<table>
+				<tr>
+					<td width=25%>課程名稱</td>
+					<td width=25%>教授</td>
+					<td width=25%>課程時間</td>
+					<td width=25%>回報狀況</td>
+				</tr>
+				{% for course, report in output_list_1082x1 %}
+				<tr>
+					<td>{{course.curriculum_name}}</td>
+					<td>{{course.instructor_name}}</td>
+					<td>{{course.time}}</td>
+					<td>{{report.report_text}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		{% else %}
+			<p>沒有吻合結果</p>		
+		{% endif %}
+		
+		<br/><br/><br/>
+		
+		<h1>1082二階：</h1>
+		{% if output_list_1082x2 %}
+			<table>
+				<tr>
+					<td width=25%>課程名稱</td>
+					<td width=25%>教授</td>
+					<td width=25%>課程時間</td>
+					<td width=25%>回報狀況</td>
+				</tr>
+				{% for course, report in output_list_1082x2 %}
+				<tr>
+					<td>{{course.curriculum_name}}</td>
+					<td>{{course.instructor_name}}</td>
+					<td>{{course.time}}</td>
+					<td>{{report.report_text}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		{% else %}
+			<p>沒有吻合結果</p>		
+		{% endif %}
+		
+		<br/><br/><br/>
+		
+		<h1>1081一階：</h1>
+		{% if output_list_1081x1 %}
+			<table>
+				<tr>
+					<td width=25%>課程名稱</td>
+					<td width=25%>教授</td>
+					<td width=25%>課程時間</td>
+					<td width=25%>回報狀況</td>
+				</tr>
+				{% for course, report in output_list_1081x1 %}
+				<tr>
+					<td>{{course.curriculum_name}}</td>
+					<td>{{course.instructor_name}}</td>
+					<td>{{course.time}}</td>
+					<td>{{report.report_text}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		{% else %}
+			<p>沒有吻合結果</p>		
+		{% endif %}
+		
+		<br/><br/><br/>
+		
+		<h1>1081二階：</h1>
+		{% if output_list_1081x2 %}
+			<table>
+				<tr>
+					<td width=25%>課程名稱</td>
+					<td width=25%>教授</td>
+					<td width=25%>課程時間</td>
+					<td width=25%>回報狀況</td>
+				</tr>
+				{% for course, report in output_list_1081x2 %}
+				<tr>
+					<td>{{course.curriculum_name}}</td>
+					<td>{{course.instructor_name}}</td>
+					<td>{{course.time}}</td>
+					<td>{{report.report_text}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		{% else %}
+			<p>沒有吻合結果</p>		
+		{% endif %}
+	</div>
+</body>
+</html>

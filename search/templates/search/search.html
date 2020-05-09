@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>政大課程排序查詢</title>
+	<style type="text/css">
+		#inputzone{display:inline-block;}
+		#submitzone{display:inline-block; }
+	</style>
+</head>
+<body>
+	<div id='formzone'>
+		<form action='{% url "result_page" %}' method='post'>
+		{% csrf_token %}
+			<div id='inputzone'>
+				<label for='teacher'>老師：</label>
+				<input type='text' id='teacher' name='teacher' value='' style='margin-right:18px'/>
+				<label for='course'>課程：</label>
+				<input type='text' id='course' name='course' value='' style='margin-right:18px'/>
+				<label for='time'>時間：</label>
+				<input type='text' id='time' name='time' value='' style='margin-right:24px'/>
+			</div>
+			<div id='submitzone'>
+				<input type='submit' value='送出'/>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
